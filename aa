@@ -5,7 +5,7 @@ import pandas as pd
 import requests
 
 
-maxContents = 20
+maxInstagramPosts = 20
 
 
 
@@ -15,7 +15,7 @@ Contents_list2 = []
 
 for i,Contents in enumerate(sninstagram.InstagramCommonScraper('Hashtag', 'suleceticinadalet').get_items()):
 
-    if i>maxContents:
+    if i>maxInstagramPosts:
 
         break
 
