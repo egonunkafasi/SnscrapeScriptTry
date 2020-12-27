@@ -1,0 +1,34 @@
+import snscrape.modules.instagram as sninstagram
+
+import pandas as pd
+
+import requests
+
+
+maxContents = 20
+
+
+
+Contents_list2 = []
+
+
+
+for i,Contents in enumerate(sninstagram.InstagramCommonScraper('Hashtag', 'suleceticinadalet').get_items()):
+
+    if i>maxContents:
+
+        break
+
+    Contents_list2.append([InstagramPost.date, InstagramPost.username, InstagramPost.cleanUrl, InstagramPost.content, InstagramPost.likes, InstagramPost.comments])
+
+
+
+
+Contents_df2 = pd.DataFrame(Contents_list2, columns=['Date',  'Username', 'URL', 'Content', 'Like', 'Comments'])
+
+
+
+
+Contents_df2.head()
+
+Contents_df2.to_csv('content.csv', sep=',', index=False)
